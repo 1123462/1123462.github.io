@@ -1,5 +1,10 @@
-const button = document.querySelector('#theme');
-button.addEventListener('click', () => {
-  const dark = document.body.classList.toggle('dark');
-  button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
+const themeButton = document.querySelector('#theme');
+
+function setTheme(dark) {
+  document.body.classList.toggle('dark', dark);
+  themeButton.setAttribute('aria-pressed', String(dark));
+}
+
+themeButton.addEventListener('click', () => {
+  setTheme(!document.body.classList.contains('dark'));
 });
